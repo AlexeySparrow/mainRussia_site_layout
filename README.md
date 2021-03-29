@@ -2,6 +2,8 @@
 - основная
 - стр. пользователя (клик на любого пользователя)
 
+## https://alexeysparrow.github.io/mainRussia_site_layout/
+
 ### реализовано:
 - сайт по макету Figma
 - custom cursor
