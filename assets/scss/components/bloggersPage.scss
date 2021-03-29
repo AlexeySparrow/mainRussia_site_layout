@@ -28,22 +28,9 @@
   @include flex(row, flex-start, center);
   margin: 2.5rem 0 0 0;
 
-  select {
-    color: $colorText;
-    background: none;
-    font-weight: 500;
-    font-size: 16px;
-    font-family: $mainFont;
-    border: none;
-
-    option {
-      background: $backgroundSite;
-    }
-  }
-
-  select,
-  p {
-    margin-right: 2rem;
+  p,
+  .select-box {
+    margin-right: 1rem;
   }
 }
 
@@ -94,11 +81,11 @@
         }
 
         div {
-          @include flex(row,space-between, center);
+          @include flex(row, space-between, center);
           flex-wrap: wrap;
 
           span {
-            @include flex(row,center, center);
+            @include flex(row, center, center);
             font-weight: 500;
             font-size: 20px;
             margin-bottom: 0.5rem;
@@ -153,10 +140,105 @@
       width: 100%;
     }
 
-    select {
+    .select-box {
       margin-top: 0.5rem;
     }
   }
 }
 
+@media (max-width: 500px) {
+  .bloggersBox__sort {
+    .select-box {
+      width: 100%;
+    }
+  }
+}
+
 /* -------------- */
+
+/* custom select */
+
+.select-box {
+  @include size(auto, auto);
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.select-box .options-container {
+  background: $backgroundSite;
+  color: $colorText;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 12px;
+  border: 0.5px solid #000000;
+  box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  order: 1;
+  z-index: 10;
+  padding: 10px;
+}
+
+.selected {
+  color: $colorText;
+  position: relative;
+  order: 0;
+}
+
+.selected::after {
+  content: "";
+  background: url("assets/image/icon/arrowBottom.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 1.5rem;
+  right: -5px;
+  top: 5px;
+
+  transition: all 0.4s;
+}
+
+.select-box .options-container.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: auto;
+}
+
+.select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -6px;
+}
+
+.select-box .optionDirection,
+.select-box .optionPlatform,
+.selected {
+  padding: 12px 24px;
+  cursor: none;
+}
+
+.select-box .optionDirection:hover,
+.select-box .optionPlatform:hover {
+  border-radius: 5px;
+  background: $hoverEffectAndCursor;
+}
+
+.select-box label {
+  cursor: none;
+}
+
+.select-box .optionDirection .radio,
+.select-box .optionPlatform .radio {
+  display: none;
+}
+
+/* -------------------- */

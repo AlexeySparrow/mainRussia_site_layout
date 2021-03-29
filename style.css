@@ -67,8 +67,14 @@ h1, h2, h3, h4, h5, h6 {
 .scrolling-wrapper {
   -webkit-overflow-scrolling: touch; }
 
-::-webkit-scrollbar:horizontal {
+.otherBloggers__bloggers ul::-webkit-scrollbar:horizontal {
   height: 0; }
+
+#scrollLine::-webkit-scrollbar:horizontal {
+  height: 5px; }
+
+#scrollLine::-webkit-scrollbar-track {
+  border-color: #6e105e; }
 
 /* ----------- */
 .container, header, footer {
@@ -502,18 +508,9 @@ footer {
   -ms-flex-align: center;
   align-items: center;
   margin: 2.5rem 0 0 0; }
-  .bloggersBox__sort select {
-    color: #EFF3F5;
-    background: none;
-    font-weight: 500;
-    font-size: 16px;
-    font-family: "Montserrat", sans-serif;
-    border: none; }
-    .bloggersBox__sort select option {
-      background: #6e105e; }
-  .bloggersBox__sort select,
-  .bloggersBox__sort p {
-    margin-right: 2rem; }
+  .bloggersBox__sort p,
+  .bloggersBox__sort .select-box {
+    margin-right: 1rem; }
 
 .bloggersBox__bloggers ul,
 .otherBloggers__bloggers ul {
@@ -671,10 +668,103 @@ footer {
     flex-wrap: wrap; }
     .bloggersBox__sort p {
       width: 100%; }
-    .bloggersBox__sort select {
+    .bloggersBox__sort .select-box {
       margin-top: 0.5rem; } }
 
+@media (max-width: 500px) {
+  .bloggersBox__sort .select-box {
+    width: 100%; } }
+
 /* -------------- */
+/* custom select */
+.select-box {
+  width: auto;
+  height: auto;
+  min-width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  font-weight: 500;
+  font-size: 16px; }
+
+.select-box .options-container {
+  background: #6e105e;
+  color: #EFF3F5;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  border-radius: 12px;
+  border: 0.5px solid #000000;
+  -webkit-box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  z-index: 10;
+  padding: 10px; }
+
+.selected {
+  color: #EFF3F5;
+  position: relative;
+  -webkit-box-ordinal-group: 1;
+  -ms-flex-order: 0;
+  order: 0; }
+
+.selected::after {
+  content: "";
+  background: url("assets/image/icon/arrowBottom.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 1.5rem;
+  right: -5px;
+  top: 5px;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s; }
+
+.select-box .options-container.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: auto; }
+
+.select-box .options-container.active + .selected::after {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  top: -6px; }
+
+.select-box .optionDirection,
+.select-box .optionPlatform,
+.selected {
+  padding: 12px 24px;
+  cursor: none; }
+
+.select-box .optionDirection:hover,
+.select-box .optionPlatform:hover {
+  border-radius: 5px;
+  background: #D26600; }
+
+.select-box label {
+  cursor: none; }
+
+.select-box .optionDirection .radio,
+.select-box .optionPlatform .radio {
+  display: none; }
+
+/* -------------------- */
 .container, header, footer {
   padding: 0 68px; }
 
@@ -778,15 +868,8 @@ footer {
 
 .otherBloggers {
   width: 100%;
-  position: relative; }
-  .otherBloggers img[alt="L"] {
-    position: absolute;
-    top: 55%;
-    left: -1.5rem; }
-  .otherBloggers img[alt="R"] {
-    position: absolute;
-    top: 55%;
-    right: -1.5rem; }
+  position: relative;
+  margin-bottom: 2rem; }
 
 .lastVideo__videoCollection {
   width: 100%;
@@ -855,6 +938,38 @@ footer {
       -ms-flex: 0 0 auto;
       flex: 0 0 auto; }
 
+.otherBloggers__scroll {
+  width: 350px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 10; }
+  .otherBloggers__scroll #scrollLine {
+    width: 80%;
+    height: 5px;
+    overflow-x: scroll;
+    overflow-y: hidden; }
+    .otherBloggers__scroll #scrollLine div {
+      width: 1700px;
+      height: 100%; }
+
 @media (max-width: 1273px) {
   .bloggerProfile__socialNetwork {
     width: 100%;
@@ -897,10 +1012,8 @@ footer {
   .bloggerProfile__socialNetwork div span {
     font-size: 1rem; } }
 
-@media (max-width: 421px) {
-  .otherBloggers img[alt="L"] {
-    left: -1rem; }
-  .otherBloggers img[alt="R"] {
-    right: -1rem; } }
+@media (max-width: 400px) {
+  .otherBloggers__scroll {
+    width: 100%; } }
 
 /* ----------------- */

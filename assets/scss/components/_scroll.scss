@@ -20,8 +20,19 @@
   -webkit-overflow-scrolling: touch;
 }
 
-::-webkit-scrollbar:horizontal {
-  height: 0;
+
+.otherBloggers__bloggers {
+  ul::-webkit-scrollbar:horizontal {
+    height: 0;
+  }
+}
+
+#scrollLine::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+
+#scrollLine::-webkit-scrollbar-track {
+  border-color: $backgroundSite;
 }
 
 

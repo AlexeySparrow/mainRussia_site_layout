@@ -93,18 +93,7 @@
 .otherBloggers {
   width: 100%;
   position: relative;
-
-  img[alt="L"] {
-    position: absolute;
-    top: 55%;
-    left: -1.5rem;
-  }
-
-  img[alt="R"] {
-    position: absolute;
-    top: 55%;
-    right: -1.5rem;
-  }
+  margin-bottom: 2rem;
 }
 
 .lastVideo__videoCollection {
@@ -163,6 +152,27 @@
     li {
       margin: 0 1rem 0 1rem;
       flex: 0 0 auto;
+    }
+  }
+}
+
+.otherBloggers__scroll {
+  @include size(350px, auto);
+  @include flex(row, space-between, center);
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  #scrollLine {
+    @include size(80%, 5px);
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    div {
+      width: 1700px;
+      height: 100%;
     }
   }
 }
@@ -237,16 +247,9 @@
   }
 }
 
-@media (max-width: 421px) {
-  .otherBloggers {
-
-    img[alt="L"] {
-      left: -1rem;
-    }
-
-    img[alt="R"] {
-      right: -1rem;
-    }
+@media (max-width: 400px) {
+  .otherBloggers__scroll {
+    width: 100%;
   }
 }
 

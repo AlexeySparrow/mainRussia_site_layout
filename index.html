@@ -44,18 +44,54 @@
     <section class="bloggersBox">
         <div class="bloggersBox__sort">
             <p>Сортировать по:</p>
-                        <select>
-                            <option value="выберете площадку">выберете площадку</option>
-                            <option value="пункт 1">пункт 1</option>
-                            <option value="пункт 2">пункт 2</option>
-                            <option value="пункт 3">пункт 3</option>
-                        </select>
-                        <select>
-                            <option value="выберете площадку">выберете площадку</option>
-                            <option value="пункт 1">пункт 1</option>
-                            <option value="пункт 2">пункт 2</option>
-                            <option value="пункт 3">пункт 3</option>
-                        </select>
+            <div class="select-box">
+                <div class="options-container" id="optionsContainerPlatform">
+                    <div class="optionPlatform">
+                        <input type="radio" class="radio" id="p1" name="category"/>
+                        <label for="p1">Пункт 1</label>
+                    </div>
+                    <div class="optionPlatform">
+                        <input type="radio" class="radio" id="p2" name="category"/>
+                        <label for="p2">Пункт 2</label>
+                    </div>
+                    <div class="optionPlatform">
+                        <input type="radio" class="radio" id="p3" name="category"/>
+                        <label for="p3">Пункт 3</label>
+                    </div>
+                    <div class="optionPlatform">
+                        <input type="radio" class="radio" id="p4" name="category"/>
+                        <label for="p4">Пункт 4</label>
+                    </div>
+                </div>
+                <div class="selected" id="selectedPlatform"
+                     onclick="clickSelect(selectedPlatform,optionsContainerPlatform, 'optionPlatform')">
+                    выберете площадку
+                </div>
+            </div>
+            <div class="select-box">
+                <div class="options-container" id="optionsContainerDirection">
+                    <div class="optionDirection">
+                        <input type="radio" class="radio" id="d1" name="category"/>
+                        <label for="d1">Пункт 1</label>
+                    </div>
+                    <div class="optionDirection">
+                        <input type="radio" class="radio" id="d2" name="category"/>
+                        <label for="d2">Пункт 2</label>
+                    </div>
+                    <div class="optionDirection">
+                        <input type="radio" class="radio" id="d3" name="category"/>
+                        <label for="d3">Пункт 3</label>
+                    </div>
+                    <div class="optionDirection">
+                        <input type="radio" class="radio" id="d4" name="category"/>
+                        <label for="d4">Пункт 4</label>
+                    </div>
+                </div>
+                <div class="selected" id="selectedDirection"
+                     onclick="clickSelect(selectedDirection,optionsContainerDirection, 'optionDirection')">
+                    выберете направление
+                </div>
+            </div>
         </div>
         <div class="bloggersBox__bloggers">
             <ul>
@@ -645,6 +681,7 @@
     <div></div>
 </div>
 
+<script src="assets/scripts/bloggersPage.js"></script>
 <footer>
     <img src="assets/image/logo.png" alt="logo">
     <ul>
@@ -662,6 +699,6 @@
         </a>
     </div>
 </footer>
-<script src="script.js"></script>
+<script src="assets/scripts/script.js"></script>
 </body>
 </html>
