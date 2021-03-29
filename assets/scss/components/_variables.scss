@@ -1,0 +1,40 @@
+// ---------- variables ----------
+
+//colors site
+$colorText: #EFF3F5;
+$backgroundSite: #6e105e;
+$backgroundBloggersCards: rgba(110, 16, 94, 0.7);
+$backgroundScroll: #924c86;
+$backgroundLastVideo: rgba(110, 16, 94, 0.25);
+$hoverEffectAndCursor: #D26600;
+$backgroundActiveBreadCrumbs: rgba(239, 243, 245, 0.8);
+$lineDownloadBloggers: rgba(239, 243, 245, 0.8);
+$backgroundInfoBloggerBox: rgba(255, 255, 255, 0.25);
+
+
+// fonts site
+$mainFont: 'Montserrat', sans-serif;
+
+// ---------- mixins ----------
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flex($flex-direction, $justify-content, $align-items){
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin backgroundHeaderAndFooter($deg) {
+  background: linear-gradient($deg, rgba(110, 16, 94, 0) 3.12%, #320029 100%);
+}
+
+// ---------- templates ----------
+
+%container {
+  padding: 0 68px;
+}

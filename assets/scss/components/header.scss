@@ -1,0 +1,132 @@
+@import "variables";
+
+/* header */
+
+.burger {
+  display: none;
+}
+
+header {
+  @include size(100%, 118px);
+  @include flex(row, space-between, center);
+  @include backgroundHeaderAndFooter(0deg);
+  @extend %container;
+
+  img {
+    @include size(98px, 98px);
+  }
+
+  ul {
+    display: flex;
+
+    li:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+}
+
+@media (max-width: 865px) {
+  header {
+    img {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 758px) {
+  .burger {
+    @include size(30px, 20px);
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    span {
+      @include size(100%, 2px);
+      display: block;
+      background: $colorText;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    &:after {
+      content: '';
+      @include size(100%, 2px);
+      background: $colorText;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 0.5s;
+    }
+
+    &:before {
+      content: '';
+      @include size(100%, 2px);
+      background: $colorText;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: 0.5s;
+    }
+
+    &.active {
+      span {
+        display: none;
+      }
+
+      &:after {
+        top: 40%;
+        left: 0;
+        transform: rotate(45deg);
+      }
+
+      &:before {
+        bottom: 53%;
+        left: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  header {
+    @include size(100%, 65px);
+    @include flex(row, center, center);
+    padding: 0 25px;
+    transition: 0.5s;
+
+    .language,
+    ul {
+      display: none;
+    }
+
+    &.active {
+      @include size(100%, 100%);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background: linear-gradient(0deg, $backgroundSite 3.12%, #320029 100%);
+
+      .language {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+
+      ul {
+        @include flex(column, center, center);
+        display: block;
+
+        li {
+          font-size: 2rem;
+          margin: 40px 0 0 0;
+        }
+      }
+    }
+  }
+}
+
+/* ----------- */

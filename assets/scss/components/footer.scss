@@ -1,0 +1,106 @@
+@import "variables";
+
+/* footer */
+
+footer {
+  @include size(100%, 225px);
+  @include flex(row, space-between, center);
+  @include backgroundHeaderAndFooter(180deg);
+  @extend %container;
+  position: relative;
+
+
+  img {
+    @include size(201px, 201px);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+
+  div {
+    @include size(100%, auto);
+    @include flex(row, center, flex-start);
+    position: absolute;
+    bottom: 38px;
+    left: 0;
+
+    a {
+      @include size(auto, auto);
+
+      &:first-child {
+        margin-right: 30px;
+      }
+    }
+
+    img {
+      @include size(32px, 32px);
+    }
+  }
+}
+
+@media (max-width: 1375px) {
+  footer {
+    ul {
+      @include flex(row, space-around, center);
+
+      li {
+        @include size(40%, 32px);
+        text-align: center;
+        margin-top: 1rem;
+
+        &:not(:last-child) {
+          margin-right: 0;
+        }
+      }
+    }
+
+    div {
+      @include size(auto, auto);
+      position: relative;
+      bottom: 0;
+      @include flex(column, center, flex-start);
+
+      a:first-child {
+        margin: 0 0 1.5rem 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 945px) {
+  footer {
+    @include size(100%, auto);
+    @include flex(column, space-between, center);
+
+    div {
+      @include flex(row, center, flex-start);
+
+      a {
+        margin: 1rem;
+
+        &:first-child {
+          margin: 1rem;
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 632px) {
+  footer {
+    ul {
+      li {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* ----------- */

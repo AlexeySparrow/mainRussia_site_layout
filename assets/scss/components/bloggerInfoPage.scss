@@ -1,0 +1,253 @@
+@import "variables";
+
+/* blogger info page */
+
+.bloggerProfile {
+  @include size(100%, 570px);
+  @include flex(row, flex-start, start);
+  background: $backgroundInfoBloggerBox;
+  border: 1px solid $colorText;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+}
+
+.bloggerProfile__photoBlogger {
+  @include size(30%, 100%);
+
+  img {
+    @include size(100%, 100%);
+    object-fit: cover;
+  }
+}
+
+.bloggerProfile__aboutBlogger {
+  @include size(70%, 100%);
+  padding: 1.5rem 2rem;
+  overflow: hidden;
+
+  hr {
+    @include size(100%, 1px);
+    margin-top: 1.5rem;
+    border: none;
+    background: $colorText;
+  }
+
+  h1 {
+    text-align: left;
+  }
+}
+
+.bloggerProfile__socialNetwork {
+  @include size(80%, auto);
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    @include flex(row, flex-start, center);
+    margin: 1.5rem 2.5rem 0 0;
+
+    img {
+      margin-right: 1rem;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 1.5rem;
+
+      p {
+        font-weight: 500;
+        font-size: 16px;
+        margin-top: 0.4rem;
+      }
+    }
+  }
+}
+
+.bloggerProfile__about {
+  @include size(100%, auto);
+  max-height: 180px;
+  margin-top: 1.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  p:first-child {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p:last-child {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.lastVideo,
+.otherBloggers {
+  h1 {
+    margin: 2.5rem 0 1.5rem 0;
+  }
+}
+
+.otherBloggers {
+  width: 100%;
+  position: relative;
+
+  img[alt="L"] {
+    position: absolute;
+    top: 55%;
+    left: -1.5rem;
+  }
+
+  img[alt="R"] {
+    position: absolute;
+    top: 55%;
+    right: -1.5rem;
+  }
+}
+
+.lastVideo__videoCollection {
+  @include size(100%, auto);
+  @include flex(row, space-between, center);
+  flex-wrap: wrap;
+
+  .lastVideo__video {
+    @include size(32%, 217px);
+    margin-top: 30px;
+  }
+
+  .lastVideo__click-for-video {
+    @include size(100%, 100%);
+    position: relative;
+
+    div {
+      @include size(100%, 100%);
+      background: $backgroundLastVideo;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    img {
+      @include size(100%, 100%);
+      object-fit: cover;
+    }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .lastVideo__youtube {
+    @include size(100%, 100%);
+  }
+
+  div.lastVideo__youtube {
+    display: none;
+  }
+}
+
+.otherBloggers__bloggers {
+  @include size(100%, 315px);
+  overflow-y: hidden;
+
+  ul {
+    @include size(100%, 315px);
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+
+    li {
+      margin: 0 1rem 0 1rem;
+      flex: 0 0 auto;
+    }
+  }
+}
+
+@media (max-width: 1273px) {
+  .bloggerProfile__socialNetwork {
+    @include size(100%, auto);
+  }
+}
+
+@media (max-width: 1069px) {
+  .bloggerProfile__aboutBlogger {
+    padding: 1rem 1rem;
+  }
+
+  .bloggerProfile__socialNetwork {
+    div {
+      margin-right: 1rem;
+    }
+  }
+
+  .lastVideo__videoCollection {
+    .lastVideo__video {
+      @include size(48%, 217px);
+    }
+  }
+}
+
+@media (max-width: 933px) {
+  .bloggerProfile {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .bloggerProfile__photoBlogger {
+    height: 80vh;
+  }
+
+  .bloggerProfile__aboutBlogger,
+  .bloggerProfile__photoBlogger {
+    width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .bloggerProfile__photoBlogger {
+    height: 50vh;
+  }
+  .lastVideo__videoCollection {
+    .lastVideo__video {
+      @include size(100%, 217px);
+    }
+  }
+}
+
+@media (max-width: 459px) {
+
+  .bloggerProfile__aboutBlogger,
+  .lastVideo,
+  .otherBloggers {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .bloggerProfile__socialNetwork {
+    div {
+      span {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 421px) {
+  .otherBloggers {
+
+    img[alt="L"] {
+      left: -1rem;
+    }
+
+    img[alt="R"] {
+      right: -1rem;
+    }
+  }
+}
+
+/* ----------------- */

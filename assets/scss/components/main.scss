@@ -1,0 +1,53 @@
+@import "variables";
+
+/* main style */
+
+html, body {
+  background: $backgroundSite;
+  color: $colorText;
+  font-family: $mainFont;
+  font-weight: 600;
+  cursor: none;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 50px;
+  @include size(100%, auto);
+  text-align: center;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+a {
+  color: $colorText;
+  padding: 3px 5px;
+  border-radius: 5px;
+  transition: 0.2s;
+  cursor: none;
+
+  &:hover {
+    background: $hoverEffectAndCursor;
+  }
+}
+
+select,
+option {
+  cursor: none;
+}
+
+.container {
+  @include size(100%, auto);
+  @extend %container;
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding: 0 1rem !important;
+  }
+}
+
+/* ---------- */
