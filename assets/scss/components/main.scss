@@ -8,6 +8,7 @@ html, body {
   font-family: $mainFont;
   font-weight: 600;
   cursor: none;
+  position: relative;
 }
 
 h1 {
@@ -42,6 +43,22 @@ option {
 .container {
   @include size(100%, auto);
   @extend %container;
+}
+
+.backGradientBottom {
+  @include size(100%, 225px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  @include backgroundHeaderAndFooter(180deg);
+}
+
+.backGradientTop {
+  @include size(100%, 120px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include backgroundHeaderAndFooter(0deg);
 }
 
 @media (max-width: 420px) {

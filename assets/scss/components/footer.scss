@@ -5,9 +5,8 @@
 footer {
   @include size(100%, 225px);
   @include flex(row, space-between, center);
-  @include backgroundHeaderAndFooter(180deg);
-  @extend %container;
   position: relative;
+  z-index: 2;
 
 
   img {

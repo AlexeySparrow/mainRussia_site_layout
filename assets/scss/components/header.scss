@@ -9,8 +9,8 @@
 header {
   @include size(100%, 118px);
   @include flex(row, space-between, center);
-  @include backgroundHeaderAndFooter(0deg);
-  @extend %container;
+  position: relative;
+  z-index: 2;
 
   img {
     @include size(98px, 98px);
